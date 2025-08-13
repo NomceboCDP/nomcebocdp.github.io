@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Literacy Program - Nomcebo Community Development</title>
+      <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #3498db;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .nav-links a.active {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        /* Project Detail */
+        .project-detail {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        .project-detail h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .project-content {
+            columns: 2;
+            column-gap: 2rem;
+            text-align: justify;
+        }
+
+        .project-content h2 {
+            color: #2c3e50;
+            margin: 1.5rem 0 1rem 0;
+            break-after: avoid;
+        }
+
+        .project-content p {
+            margin-bottom: 1rem;
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .project-gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(149, 165, 166, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .social-icons a.facebook { background: #3b5998; }
+        .social-icons a.instagram { background: #e4405f; }
+        .social-icons a.whatsapp { background: #25d366; }
+        .social-icons a.youtube {background: #ff002f;}
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .project-content {
+                columns: 1;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+            <img src="images/logo.png" width="185" height="90" alt="Nomcebo Community Development Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="announcements.html" class="nav-link">Announcements</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container"> 
+        <div class="project-detail"> <br>
+                </br>
+            <h1>Mandela Day 2025</h1>
+            <div class="project-meta">
+                <span>Held: 18 July 2025</span>
+                <span>Location: Nomcebo Headquarters</span>
+                <span>Households assisted: 50+</span>
+            </div>
+            
+            <div class="project-gallery">
+                <img src="images/projects/project3/IMG_4764.jpg">
+                <img src="images/projects/project3/IMG_4754.jpg">
+            </div>
+            
+            <div class="project-content">
+                <h2>Project Overview</h2>
+                <p>Our initiative was a huge success this year, as we were able to donate over 50 grocery hampers to community members.</p>
+                
+                <h2>Implementation</h2>
+                <p>We partnered up with local supermarkets to ensure we give back to the community.</p>
+                
+                <h2>Results and Impact</h2>
+                <p>Over 50 households were able to receive food hampers that will assist in the fight against hunger within our community, and immediate surroundings. Our community was also given a talk by our partnering sponsors on the importance of charity, and self sustainability.</p>
+                
+                <h2>Future Plans</h2>
+                <p>We're expanding to offer more grocery hampers to more households, as the fight against economic disparity continues within our community.</p>
+
+                <h2>Get Involved</h2>
+                <p>Any donations of any kind will go a long way in assisting us fight economic poverty.</p>
+            </div>
+            
+            <a href="projects.html" class="back-btn">← Back to Projects</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/p/Nomcebo-Community-Development-Project-100095669465119/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/nomcebocomdef?igsh=MXNyZGw1ZmQ5d2Vsbg==" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.link/86zepl" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.youtube.com/@NomceboCommunityDevelopmentPro" class="youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Nomcebo Community Development. All rights reserved.</p>
+            <p>2454 Mayfield Ext 5, Daveyton, South Africa | Phone: +27 68 298 5322 | Email: nomcebocomdevpro11@gmail.com</p>
+            <p>Developed by Postilla Tech Dept (sakhilesikhosana@gmail.com)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if ((currentPage === 'index.html' && linkPage === 'index.html') || 
+                    (currentPage !== 'index.html' && linkPage === currentPage)) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

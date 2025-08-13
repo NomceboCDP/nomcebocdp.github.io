@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Nomcebo Community Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #3498db;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .nav-links a.active {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Announcements Grid */
+        .announcements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .announcement-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .announcement-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .announcement-date {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .announcement-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .announcement-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .social-icons a.facebook { background: #3b5998; }
+        .social-icons a.instagram { background: #e4405f; }
+        .social-icons a.whatsapp { background: #25d366; }
+        .social-icons a.youtube {background: #ff002f;}
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+            <img src="images/logo.png" width="185" height="90" alt="Nomcebo Community Development Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="announcements.html" class="nav-link active">Announcements</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="hero"> <br>
+                </br>
+            <h1>Announcements</h1>
+            <p>Stay updated with our latest news and events</p>
+        </div>
+
+            <div class="announcement-card">
+                <!--<div class="announcement-date">June 15, 2025</div>-->
+                <h3>2025 Programs Calendar</h3>
+                <p>Our Life Skills Programs Calendar for 2025, click the link below to get our full calendar for the year.</p>
+                <a href="images/announcements/calendar.png" download="life-skills.jpg" class="read-more">Life skills calendar →</a> <p> </p>           
+                <a href="images/announcements/image.png" download="caregiver-ict.jpg" class="read-more">Caregiver & ICT calendar →</a>            
+            </div> <br></br>
+
+        <div class="announcements-grid">
+            <div class="announcement-card">
+                <!--<div class="announcement-date">June 15, 2025</div>-->
+                <h3>Daily Job Applications</h3>
+                <p>Links to daily job portals</p>
+                <a href="images/announcements/1.png" download="daily-jobs.jpg" class="read-more">Daily Job Adverts Link →</a>            
+                <a href="images/announcements/2.png" download="youth-jobs.jpg" class="read-more">Youth Driven Employment Link →</a>            
+            </div>
+
+            <div class="announcement-card">
+                <!--<div class="announcement-date">June 15, 2025</div>-->
+                <h3>ICT Skills Programs</h3>
+                <p>End User Computing (NQF3)</p>
+                <p>Networking (N+)</p>
+                <a href="images/announcements/5.png" download="ict-programs.jpg" class="read-more">Read more →</a>            
+            </div>
+
+            <div class="announcement-card">
+                <!--<div class="announcement-date">June 15, 2025</div>-->
+                <h3>Healthcare Programs</h3>
+                <p>Community Health Work (NQF2,3&4)</p>
+                <p>Health Promoter Officer</p>
+                <p>Pre-Nursing (Caregiver Course)</p>
+                <a href="images/announcements/7.jpg" download="caregiver-programs.jpg" class="read-more">Read more →</a>            
+            </div>
+                        
+        </div>    
+            <br></br>
+            <div class="announcement-card">
+                <!--<div class="announcement-date">June 15, 2025</div>-->
+                <h3>Services</h3>
+                <p>A list of our available services open to the whole community.</p>
+                <a href="images/announcements/4.png" download="peronal-dev.jpg" class="read-more">Personal Development →</a>
+                <p></p>            
+                <a href="images/announcements/6.png" download="services-elderly.jpg" class="read-more">Services For The Elderly →</a>
+                <p></p>            
+                <a href="images/announcements/3.jpg" download="ncdp-cares.jpg" class="read-more">Nomcebo Care Programs →</a>            
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/p/Nomcebo-Community-Development-Project-100095669465119/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/nomcebocomdef?igsh=MXNyZGw1ZmQ5d2Vsbg==" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.link/86zepl" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.youtube.com/@NomceboCommunityDevelopmentPro" class="youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Nomcebo Community Development. All rights reserved.</p>
+            <p>2454 Mayfield Ext 5, Daveyton, South Africa | Phone: +27 68 298 5322 | Email: nomcebocomdevpro11@gmail.com</p>
+            <p>Developed by Postilla Tech Dept (sakhilesikhosana@gmail.com)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if ((currentPage === 'index.html' && linkPage === 'index.html') || 
+                    (currentPage !== 'index.html' && linkPage === currentPage)) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+
+        // Function to trigger image download
+        function downloadImage(imageName, event) {
+            event.preventDefault();
+            
+            try {
+                // Create a temporary anchor element
+                const link = document.createElement('a');
+                link.href = 'images/' + imageName;
+                link.download = imageName;
+                
+                // Append to the body (required for Firefox)
+                document.body.appendChild(link);
+                
+                // Trigger the click event
+                link.click();
+                
+                // Clean up
+                document.body.removeChild(link);
+                
+                // Optional: Show download confirmation
+                console.log('Downloading: ' + imageName);
+            } catch (error) {
+                console.error('Error downloading image:', error);
+                alert('Sorry, there was an error downloading the image. Please try again later.');
+            }
+        }
+    </script>
+</body>
+</html>
